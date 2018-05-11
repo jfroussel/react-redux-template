@@ -15,3 +15,19 @@ export const getCountries = () => {
         })
     }     
 }
+
+/* API rest countries */
+export const REST_COUNTRIES_ALL = 'REST_COUNTRIES_ALL'
+export const REST_COUNTRIES_ALL_ERRORS = 'REST_COUNTRIES_ALL_ERRORS'
+
+export const restCountries = () => {
+    const url = 'https://restcountries.eu/rest/v2/all'
+    return(dispatch) => {
+        axios(url).then((response) => {
+            console.log(response.data)
+            dispatch({ type: REST_COUNTRIES_ALL, payload: response.data})
+        }).catch((errors) => {
+            dispatch({ type: REST_COUNTRIES_ALL_ERRORS, errors: 'errors'})
+        })
+    }
+}
