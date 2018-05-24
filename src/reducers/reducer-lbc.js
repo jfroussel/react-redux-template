@@ -1,14 +1,13 @@
-import { GET_COUNTRIES, ERROR_GET_COUNTRIES} from '../actions'
+import { GET_LBC, ERROR_GET_LBC} from '../actions'
 
 export default function(state = null, action) {
     switch(action.type) {
-        case GET_COUNTRIES :
+        case GET_LBC :
             return action.payload
-        case ERROR_GET_COUNTRIES :
+        case ERROR_GET_LBC :
             return action.errors
         
         default :
-           
+            return state
     }
-    return state
 }

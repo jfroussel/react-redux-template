@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import CountriesSelect from '../../containers/CountriesSelect'
-import HomeContent from './HomeContent'
+import React, { Component } from 'react'
+import Leboncoin from '../../containers/Leboncoin.js'
 
 class Home extends Component {
     render() {
         return (
             <div>
-                <HomeContent />
-                <CountriesSelect />
+               <Leboncoin />
            </div>
         );
     }
 }
 
-export default Home;
+export default Home
