@@ -7,7 +7,7 @@ export const GET_LBC = 'GET_LBC'
 export const ERROR_GET_LBC = 'ERROR_GET_LBC'
 let search = new leboncoin.Search()
     .setPage(1)
-    .setQuery("fender")
+    .setQuery("gibson")
     .setFilter(leboncoin.FILTERS.PARTICULIER)
     .setCategory("instruments_de_musique")
     .setRegion("ile_de_france")

@@ -92,12 +92,10 @@ class ContentList extends Component {
                                 <p style={style.price}>{isNaN(result.price) ? '' : result.price + ' €' }</p>
                             </div>
                             <div className="col-3" style={style.content}>
-                                <p className="text-right" style={style.save}><i className="far fa-heart"></i></p>
-                                <p className="text-right align-bottom text-info" style={style.connect}><i className="far fa-user"></i></p>
+                                <p className="text-right text-muted" style={style.save}><i className="far fa-heart mr-2"></i><i className="far fa-user"></i></p>
                                 <p className="text-right" style={style.date}>{renderDate(result.date)}</p>
                             </div>
                         </div>
-
                     )
                 })
             )

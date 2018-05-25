@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ContentList from './ContentList'
+import Pub from './Pub'
+
 class Content extends Component {
     render() {
         const style = {
@@ -9,8 +11,9 @@ class Content extends Component {
         }
         return (
             <div className="container pt-3">
+            <div className="row">
                 <h6 style={style.title} className="text-muted">Annonces Instruments de Musique Occasion : Ile-de-France</h6>
-                <div className="col-10 pt-5">
+                <div className="col-9 pt-5">
                     <ul className="nav nav-tabs">
                         <li className="nav-item" >
                             <a className="nav-link active" href="#toutes" style={style.a}>Toutes 419</a>
@@ -30,9 +33,10 @@ class Content extends Component {
                         <div className="tab-pane fade" id="professionnels" role="tabpanel" aria-labelledby="professionnels-tab">professionnels</div>
                     </div>
                 </div>
-                <div className="col-2">
-                
+                <div className="col-3 pt-5">
+                    <Pub />
                 </div>
+            </div>
             </div>
         );
     }
