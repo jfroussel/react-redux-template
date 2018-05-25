@@ -54,7 +54,6 @@ class Navbar extends Component {
                         <div className="navbar-nav pr-5 " style={style.navbarNav}>
                             {
                                 items.map((item) => {
-                                    console.log(item)
                                     return (
                                         <a className="nav-item nav-link" key={item} href="" style={style.navItem}>{item}</a>
                                     )

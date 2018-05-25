@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import leboncoin from 'leboncoin-api'
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getLBC } from '../../actions'
@@ -8,16 +8,13 @@ class ContentList extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            
-        }
+        this.state = {}
     }
 
-    
     componentWillMount() {
         this.props.getLBC()
     }
-    
+
     renderLBC() {
         const { lbc } = this.props
         const style = {
@@ -29,21 +26,21 @@ class ContentList extends Component {
             imgContainer: {
                 width: '200px',
                 height: '150px',
-                backgroundColor:'#efeded',
-                margin:'10px',
-                display:'inline-block',
-                float:'left',
-                position:'relative',
+                backgroundColor: '#efeded',
+                margin: '10px',
+                display: 'inline-block',
+                float: 'left',
+                position: 'relative',
             },
             img: {
                 maxWidth: '100%',
-                maxHeight:'100%',
+                maxHeight: '100%',
                 margin: 'auto',
-                position:'absolute',
-                top:0,
-                left:0,
-                right:0,
-                bottom:0,
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
             },
             content: {
                 paddingTop: '15px'
@@ -68,17 +65,17 @@ class ContentList extends Component {
                 fontWeight: 100,
                 fontSize: '0.8rem',
             },
-           
+
         }
         const renderDate = (date) => {
             return (
-                date.toLocaleDateString('fr-FR', options) 
+                date.toLocaleDateString('fr-FR', options)
             )
         }
-        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour: "numeric", minute: "numeric" } 
-        
+        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "numeric", minute: "numeric" }
 
-        if(lbc) {
+
+        if (lbc) {
             return (
                 lbc.map((result) => {
                     return (
@@ -89,25 +86,27 @@ class ContentList extends Component {
                             <div className="col-5" style={style.content}>
                                 <p style={style.title}>{result.title}</p>
                                 <p style={style.location}>{result.location}</p>
-                                <p style={style.price}>{isNaN(result.price) ? '' : result.price + ' €' }</p>
+                                <p style={style.price}>{isNaN(result.price) ? '' : result.price + ' €'}</p>
                             </div>
                             <div className="col-3" style={style.content}>
                                 <p className="text-right text-muted" style={style.save}><i className="far fa-heart mr-2"></i><i className="far fa-user"></i></p>
                                 <p className="text-right" style={style.date}>{renderDate(result.date)}</p>
+                                <Link to='/details'>détails </Link>
                             </div>
                         </div>
                     )
                 })
             )
-        } 
+        }
     }
 
     render() {
         return (
-           
-            <div className="container">
-                {this.renderLBC()}
-            </div>
+            <Router>
+                <div className="container">
+                    {this.renderLBC()}
+                </div>
+            </Router>
         );
     }
 }
@@ -119,7 +118,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({getLBC}, dispatch)
+    return bindActionCreators({ getLBC }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContentList);

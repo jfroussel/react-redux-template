@@ -69,6 +69,43 @@ export const loisirs = [
     
 ]
 
+export const multimedia = [
+    {value:'Informatique',label:'Informatique'},
+    {value:'Consoles & Jeux video',label:'Consoles & Jeux video'},
+    {value:'Image & Son',label:'Image & Son'},
+    {value:'Téléphonie',label:'Téléphonie'},
+]
+
+export const vacances = [
+    {value:'Locations & Gites',label:'Locations & Gites'},
+    {value:'Chambres d\'hôtes',label:'Chambres d\'hôtes'},
+    {value:'Camping',label:'Camping'},
+    {value:'Hôtels',label:'Hôtels'},
+    {value:'Hébergements insolites',label:'Hébergements insolites'},
+]
+
+export const immobilier = [
+    {value:'Ventes immobilieres',label:'Ventes immobilieres'},
+    {value:'Immobilier neuf',label:'Immobilier neuf'},
+    {value:'Locations',label:'Locations'},
+    {value:'Colocations',label:'Colocations'},
+    {value:'Bureaux & Commerces',label:'Bureaux & Commerces'},
+]
+
+export const vehicules = [
+    {value:'Voitures',label:'Voitures'},
+    {value:'Motos',label:'Motos'},
+    {value:'Caravaning',label:'Caravaning'},
+    {value:'Utilitaires',label:'Utilitaires'},
+    {value:'Equipement Auto',label:'Equipement Auto'},
+    {value:'Equipement Moto',label:'Equipement Moto'},
+    {value:'Equipement Caravaning',label:'Equipement Caravaning'},
+    {value:'Equipement Nautisme',label:'Equipement Nautisme'},
+    
+    
+]
+
+
 /*
 export const xxx = [
     {value:'',label:''},
