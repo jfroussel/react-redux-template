@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SearchByCategory from './SearchByCategory'
+import {departements} from '../../Constants'
 
 const style = {
     container: {
@@ -18,7 +19,7 @@ const style = {
     },
     departements: {
         backgroundColor:'#dcdcc3',
-    }
+    },
 }
 
 class Search extends Component {
@@ -69,28 +70,23 @@ class Search extends Component {
                         </div>
                         <div className="col-3 ">
                             <div className="form-group mr-1">
-                                <select className="form-control" id="exampleFormControlSelect1" onChange={this.handleChangeDepartement}>
-                                    <option value="4">Autour de moi</option>
-                                    <option value="1" selected>Ile-de-France</option>
-                                    <option value="2">Régions voisines</option>
-                                    <option value="3">Toute la France</option>
-                                    <option style={style.departements} value="0">-- DEPARTEMENT --</option>
-                                    <option value="75"> Paris</option>                                       
-                                    <option value="77">Seine-et-Marne</option>                               
-                                    <option value="78">Yvelines</option>
-                                    <option value="91">Essonne</option>
-                                    <option value="92">Hauts-de-Seine</option>
-                                    <option value="93">Seine-Saint-Denis</option>
-                                    <option value="94">Val-de-Marne</option>
-                                    <option value="95">Val-d'Oise</option>                                                                                                        
+                                <select className="form-control" id="exampleFormControlSelect1" onChange={this.handleChangeDepartement}>                                  
+                                    {
+                                        departements.map((item) => {
+                                            return (
+                                                <option key={item.value} value={item.value}>{item.label}</option>
+                                            )
+                                        })
+                                    }                                                                                                             
                                 </select>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-3">
-                        <div className="form-group">
-                            <input type="text" className="form-control" id="postalCode" aria-describedby="postalCode" placeholder="Ville ou Code postal" />
+                        <div className="col-3">
+                            <div className="form-group">
+                                <input type="text" className="form-control" id="postalCode" aria-describedby="postalCode" placeholder="Ville ou Code postal" />
+                            </div>
                         </div>
-                    </div>
+                        
                 </div>
             </div>
             </div >
