@@ -4,6 +4,7 @@ import Descriptions from '../components/layout/Descriptions'
 import Geoloc from '../components/layout/Geoloc'
 import ToolsBox from '../components/layout/Toolsbox'
 import Navbar from '../components/layout/Navbar'
+import "../../node_modules/react-image-gallery/styles/css/image-gallery.css"
 
 class Details extends Component {
     

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getLBC } from '../../actions'
@@ -102,11 +102,11 @@ class ContentList extends Component {
 
     render() {
         return (
-            <Router>
-                <div className="container">
-                    {this.renderLBC()}
-                </div>
-            </Router>
+
+            <div className="container">
+                {this.renderLBC()}
+            </div>
+
         );
     }
 }
