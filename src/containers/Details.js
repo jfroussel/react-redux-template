@@ -12,14 +12,16 @@ class Details extends Component {
         return (
             <div className="grid">
             <Navbar />
-                <div className="row">
-                    <div className="col-8">
-                        <SlideShow />
-                        <Descriptions />
-                        <Geoloc />
-                    </div>
-                    <div className="col-4">
-                        <ToolsBox />
+                <div className="container">
+                    <div className="row pt-3">
+                        <div className="col-8">
+                            <SlideShow />
+                            <Descriptions />
+                            <Geoloc />
+                        </div>
+                        <div className="col-4">
+                            <ToolsBox />
+                        </div>
                     </div>
                 </div>
             </div>
