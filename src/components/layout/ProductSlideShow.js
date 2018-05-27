@@ -22,7 +22,7 @@ const style = {
     }
 }
 
-class SlideShow extends Component {
+class ProductSlideShow extends Component {
     render() {
         const images = [
             {
@@ -66,4 +66,4 @@ class SlideShow extends Component {
     }
 }
 
-export default SlideShow;
+export default ProductSlideShow;

@@ -6,7 +6,7 @@ const style = {
         color: 'c7c7c7'
     }
 }
-class Description extends Component {
+class ProductDescription extends Component {
     render() {
         return (
             <div className="container pt-3">
@@ -43,4 +43,4 @@ Chevalet : Epiphone Tun-O- ... lire plus</p>
     }
 }
 
-export default Description;
+export default ProductDescription;

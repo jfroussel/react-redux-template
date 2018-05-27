@@ -3,8 +3,6 @@
  **/
 
 import { combineReducers } from 'redux'
-import CountriesReducer from './reducer-countries'
-import RestCountries from './reducer-rest-countries'
 import LbcReducer from './reducer-lbc'
 
 /** 
@@ -12,7 +10,5 @@ import LbcReducer from './reducer-lbc'
  **/
 
 export default combineReducers({
-  countries: CountriesReducer,
-  restCountries: RestCountries,
-  lbc: LbcReducer,
+  products: LbcReducer,
 })

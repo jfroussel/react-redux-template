@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getLBC } from '../../actions'
+import { readAllProducts } from '../../actions'
 
-class ContentList extends Component {
+class ProductsList extends Component {
 
     constructor(props) {
         super(props)
@@ -12,11 +12,11 @@ class ContentList extends Component {
     }
 
     componentWillMount() {
-        this.props.getLBC()
+        this.props.readAllProducts()
     }
 
-    renderLBC() {
-        const { lbc } = this.props
+    renderProducts() {
+        const { products } = this.props
         const style = {
             row: {
                 borderBottom: 'solid 1px #efeded',
@@ -75,23 +75,23 @@ class ContentList extends Component {
         let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "numeric", minute: "numeric" }
 
 
-        if (lbc) {
+        if (products) {
             return (
-                lbc.map((result) => {
+                products.map((product) => {
                     return (
-                        <div className="row" style={style.row} key={result.id}>
+                        <div className="row" style={style.row} key={product.id}>
                             <div className="col-3" style={style.imgContainer}>
-                                <img src={result.images[0]} alt='' style={style.img} />
+                                <img src={product.images[0]} alt='' style={style.img} />
                             </div>
                             <div className="col-5" style={style.content}>
-                                <p style={style.title}>{result.title}</p>
-                                <p style={style.location}>{result.location}</p>
-                                <p style={style.price}>{isNaN(result.price) ? '' : result.price + ' €'}</p>
+                                <p style={style.title}>{product.title}</p>
+                                <p style={style.location}>{product.location}</p>
+                                <p style={style.price}>{isNaN(product.price) ? '' : product.price + ' €'}</p>
                             </div>
                             <div className="col-3" style={style.content}>
                                 <p className="text-right text-muted" style={style.save}><i className="far fa-heart mr-2"></i><i className="far fa-user"></i></p>
-                                <p className="text-right" style={style.date}>{renderDate(result.date)}</p>
-                                <Link to='/details'>détails </Link>
+                                <p className="text-right" style={style.date}>{renderDate(product.date)}</p>
+                                <Link to={`product/${product.id}`}>détails </Link>
                             </div>
                         </div>
                     )
@@ -104,7 +104,7 @@ class ContentList extends Component {
         return (
 
             <div className="container">
-                {this.renderLBC()}
+                {this.renderProducts()}
             </div>
 
         );
@@ -113,12 +113,12 @@ class ContentList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        lbc: state.lbc,
+        products: state.products,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getLBC }, dispatch)
+    return bindActionCreators({ readAllProducts }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContentList);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);

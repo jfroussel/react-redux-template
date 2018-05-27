@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ContentList from './ContentList'
+import ProductsList from './ProductsList'
 import Pub from './Pub'
 
 class Content extends Component {
@@ -27,7 +27,7 @@ class Content extends Component {
                     </ul>
                     <div className="tab-content" id="myTabContent">
                         <div className="tab-pane fade show active" id="toutes" role="tabpanel" aria-labelledby="toutes-tab">
-                            <ContentList />
+                            <ProductsList />
                         </div>
                         <div className="tab-pane fade" id="particuliers" role="tabpanel" aria-labelledby="particuliers-tab">particuliers</div>
                         <div className="tab-pane fade" id="professionnels" role="tabpanel" aria-labelledby="professionnels-tab">professionnels</div>

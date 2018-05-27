@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Geoloc extends Component {
+class ProductLocation extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class Geoloc extends Component {
     }
 }
 
-export default Geoloc;
+export default ProductLocation;

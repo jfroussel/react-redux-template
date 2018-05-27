@@ -25,7 +25,7 @@ const style = {
         fontSize: '12px',
     }
 }
-class Toolsbox extends Component {
+class ProductActions extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -70,4 +70,4 @@ class Toolsbox extends Component {
     }
 }
 
-export default Toolsbox;
+export default ProductActions;

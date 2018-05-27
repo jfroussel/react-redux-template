@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Home from './layout/Home'
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Details from '../containers/Details';
+import Product from '../containers/Product';
 import Leboncoin from '../containers/Leboncoin'
 
 
@@ -15,7 +15,7 @@ class App extends Component {
                 <div>
                     <Route exact path="/" component={ Home } />
                     <Route path="/list" component={Leboncoin} />
-                    <Route path="/details" component={Details} />
+                    <Route path="/product" component={Product} />
                 </div>
             </Router>
         )
