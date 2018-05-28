@@ -1,13 +1,13 @@
 import {
-    READ_ALL_PRODUCTS,
-    ERROR_READ_ALL_PRODUCTS,
+    READ_PHONE_NUMBER,
+    ERROR_READ_PHONE_NUMBER,
 } from '../actions'
 
 export default function (state = null, action) {
     switch (action.type) {
-        case READ_ALL_PRODUCTS:
+        case READ_PHONE_NUMBER:
             return action.payload
-        case ERROR_READ_ALL_PRODUCTS:
+        case ERROR_READ_PHONE_NUMBER:
             return action.errors 
 
         default:

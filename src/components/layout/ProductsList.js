@@ -63,15 +63,20 @@ class ProductsList extends Component {
     constructor(props) {
         super(props)
         this.state = {}
+
+        this.renderProducts = this.renderProducts.bind(this)
     }
 
+
     componentWillMount() {
+        console.log('in product ',this.props)
         this.props.readAllProducts()
+       
     }
 
     renderProducts() {
         const { products } = this.props
-       
+
         const renderDate = (date) => {
             return (
                 date.toLocaleDateString('fr-FR', options)
@@ -82,9 +87,9 @@ class ProductsList extends Component {
 
         if (products) {
             return (
-                products.map((product) => {
+                products.map((product, index) => {
                     return (
-                        <Link to={`product/${product.id}`} key={product.id} style={style.link}>
+                        <Link to={`product/${index}`} key={product.id} style={style.link} id={index}>
                             <div className="row" style={style.row} key={product.id}>
                                 <div className="col-3" style={style.imgContainer}>
                                     <img src={product.images[0]} alt='' style={style.img} />
@@ -97,7 +102,6 @@ class ProductsList extends Component {
                                 <div className="col-3" style={style.content}>
                                     <p className="text-right text-muted" style={style.save}><i className="far fa-heart mr-2"></i><i className="far fa-user"></i></p>
                                     <p className="text-right" style={style.date}>{renderDate(product.date)}</p>
-                                    
                                 </div>
                             </div>
                         </Link>
