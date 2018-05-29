@@ -8,7 +8,7 @@ const style = {
     }
 }
 const  ProductDescription = ({product}) => {
-    console.log(product)
+  
     if(!product) {
         return 'no description'
     }

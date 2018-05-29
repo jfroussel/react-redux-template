@@ -69,14 +69,13 @@ class ProductsList extends Component {
 
 
     componentWillMount() {
-        console.log('in product ',this.props)
         this.props.readAllProducts()
        
     }
 
     renderProducts() {
         const { products } = this.props
-
+        
         const renderDate = (date) => {
             return (
                 date.toLocaleDateString('fr-FR', options)

@@ -24,17 +24,16 @@ class Product extends Component {
         this.props.phoneNumber(id)
     }
 
-    
     render() {
-        
-       
+        const {product} = this.props
+        console.log(product)
         return (
             <div className="grid">
             <Navbar />
                 <div className="container">
                     <div className="row pt-3">
                         <div className="col-8">
-                            <ProductSlide product={this.props.product} />
+                            <ProductSlide product={product} />
                             <ProductDescription product={this.props.product} />
                             <ProductLocation />
                         </div>
