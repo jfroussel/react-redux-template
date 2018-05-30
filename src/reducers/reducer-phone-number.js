@@ -9,7 +9,6 @@ export default function (state = null, action) {
             return action.payload
         case ERROR_READ_PHONE_NUMBER:
             return action.errors 
-
         default:
            
     }

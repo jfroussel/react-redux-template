@@ -26,7 +26,8 @@ const style = {
     }
 }
 
-const ProductActions = ({ product, phoneNumber }) => {
+
+const ProductActions = ({ product }) => {
 
     if (!product) {
         return 'no actions'
@@ -40,6 +41,7 @@ const ProductActions = ({ product, phoneNumber }) => {
             <button
                 className="btn btn-block pb"
                 style={style.number}
+
             >
                 <i className="fas fa-phone fa-2x mr-2" style={style.icon}></i>Voir le numero</button>
             <br />
@@ -52,7 +54,7 @@ const ProductActions = ({ product, phoneNumber }) => {
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">Votre message</label>
                             <textarea className="form-control rounded-0" rows="10"></textarea><br />
-                            <button className="btn btn-sm btn-outline-primary">Envoyer</button>
+                            <button className="btn btn-sm btn-primary">Envoyer</button>
                             <div className="text-left pt-5" style={style.information}>Information</div>
                             <small className="form-text text-left font-italic text-muted " >Le responsable de traitement, les destinataires et la finalité de la collecte des données.
                                     En savoir plus sur vos droits, la durée de conservation de vos données et les moyens de nous contacter.</small>

@@ -35,7 +35,6 @@ let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
 const renderImages = (images) => {
     let img = []
     images.map((image) => {
-        console.log(('images map : ', image))
         return (
             img.push({ original: image, thumbnail: image })
         )

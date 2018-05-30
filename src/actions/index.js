@@ -6,9 +6,9 @@ export const READ_ALL_PRODUCTS = 'READ_ALL_PRODUCTS'
 export const ERROR_READ_ALL_PRODUCTS = 'ERROR_READ_ALL_PRODUCTS'
 let search = new leboncoin.Search()
     .setPage(1)
-    .setQuery("gibson")
+    .setQuery("vuitton")
     .setFilter(leboncoin.FILTERS.PARTICULIER)
-    .setCategory("instruments_de_musique")
+    .setCategory("")
     .setRegion("ile_de_france")
 
 export const readAllProducts = () => {
