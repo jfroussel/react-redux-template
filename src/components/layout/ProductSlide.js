@@ -31,7 +31,6 @@ const renderDate = (date) => {
 }
 let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "numeric", minute: "numeric" }
 
-
 const renderImages = (images) => {
     let img = []
     images.map((image) => {
@@ -42,17 +41,13 @@ const renderImages = (images) => {
     return img
 }
 
-
 const ProductSlide = ({ product }) => {
-
     if (!product) {
         return <div>Pas de produit trouvé</div>
     }
     return (
         <div className="container pt-3" style={style.container}>
-
             <ImageGallery items={renderImages(product.details.images.urls)} />
-
             <span style={style.title}>{utf8.decode(product.title)}</span><br />
             <span style={style.price}>{isNaN(product.price) ? '' : product.price + ' €'}</span>
             <p style={style.date}>{renderDate(product.date)}</p>

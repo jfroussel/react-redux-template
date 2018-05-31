@@ -6,7 +6,7 @@ export const READ_ALL_PRODUCTS = 'READ_ALL_PRODUCTS'
 export const ERROR_READ_ALL_PRODUCTS = 'ERROR_READ_ALL_PRODUCTS'
 let search = new leboncoin.Search()
     .setPage(1)
-    .setQuery("vuitton")
+    .setQuery("gibson")
     .setFilter(leboncoin.FILTERS.PARTICULIER)
     .setCategory("")
     .setRegion("ile_de_france")
@@ -51,6 +51,17 @@ export const phoneNumber = (id) => {
         })
     }
 }
+
+export const CATEGORY_SELECTED = 'CATEGORY_SELECTED'
+
+export const categorySelected = (category) => {
+    return (dispatch) => {
+        dispatch({ type: CATEGORY_SELECTED, payload: category })
+    }
+}
+
+
+
 
 
 

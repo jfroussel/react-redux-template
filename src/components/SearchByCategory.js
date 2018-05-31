@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { maison, services, materiels, loisirs, multimedia, vacances, immobilier, vehicules } from '../../Constants'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { categorySelected } from '../actions'
+import { maison, services, materiels, loisirs, multimedia, vacances, immobilier, vehicules } from '../Constants'
 
 const style = {
     dropdownMenu: {
@@ -35,17 +38,28 @@ class SearchByCategory extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            categorySelected: 'Selectionnez une categorie'
+
         }
         this.handleCategorySelected = this.handleCategorySelected.bind(this)
         this.renderListItems = this.renderListItems.bind(this)
     }
 
+    componentWillMount() {
+        const category = 'all'
+        this.props.categorySelected(category)
+    }
+
     handleCategorySelected(e) {
+        console.log(this.props)
         console.log('current target : ', e.currentTarget.text)
         this.setState({ categorySelected: e.currentTarget.text })
         e.preventDefault()
     }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(this.props)
+    }
+    
 
     renderListItems(items) {
         return (
@@ -65,7 +79,7 @@ class SearchByCategory extends Component {
             <div>
                 <div className="dropdown">
                     <a className="btn btn-secondary dropdown-toggle" style={style.categoryBtn} href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {this.state.categorySelected}
+                        {this.state.categorySelected ? this.state.categorySelected : 'Toutes les categories'}
                     </a>
                     <div className="dropdown-menu" style={style.dropdownMenu} aria-labelledby="dropdownMenuLink">
                         <div className="container">
@@ -79,41 +93,41 @@ class SearchByCategory extends Component {
                                     </ul>
                                     <p><a type="button" className="btn btn-primary btn-block" href="" onClick={this.handleCategorySelected} style={style.title}>vehicules</a></p>
                                     <ul style={style.categoryUl}>
-                                        { this.renderListItems(vehicules) }
+                                        {this.renderListItems(vehicules)}
                                     </ul>
                                     <p><a type="button" className="btn btn-primary btn-block" href="" onClick={this.handleCategorySelected} style={style.title}>immobilier</a></p>
                                     <ul style={style.categoryUl}>
-                                        { this.renderListItems(immobilier) }
+                                        {this.renderListItems(immobilier)}
                                     </ul>
                                 </div>
                                 <div className="col">
                                     <p><a type="button" className="btn btn-primary btn-block" href="" onClick={this.handleCategorySelected} style={style.title}>vacances</a></p>
                                     <ul style={style.categoryUl}>
-                                        { this.renderListItems(vacances) }
+                                        {this.renderListItems(vacances)}
                                     </ul>
                                     <p><a type="button" className="btn btn-primary btn-block" href="" onClick={this.handleCategorySelected} style={style.title}>multimedia</a></p>
                                     <ul style={style.categoryUl}>
-                                        { this.renderListItems(multimedia) }
+                                        {this.renderListItems(multimedia)}
                                     </ul>
                                     <p><a type="button" className="btn btn-primary btn-block" href="" onClick={this.handleCategorySelected} style={style.title}>loisirs</a></p>
                                     <ul style={style.categoryUl}>
-                                        { this.renderListItems(loisirs) }
+                                        {this.renderListItems(loisirs)}
                                     </ul>
                                 </div>
                                 <div className="col">
                                     <p><a type="button" className="btn btn-primary btn-block" href="" onClick={this.handleCategorySelected} style={style.title}>materiel professionnel</a></p>
                                     <ul style={style.categoryUl}>
-                                        { this.renderListItems(materiels) }
+                                        {this.renderListItems(materiels)}
                                     </ul>
                                     <p><a type="button" className="btn btn-primary btn-block" href="" onClick={this.handleCategorySelected} style={style.title}>services</a></p>
                                     <ul style={style.categoryUl}>
-                                        { this.renderListItems(services) }
+                                        {this.renderListItems(services)}
                                     </ul>
                                 </div>
                                 <div className="col">
                                     <p><a type="button" className="btn btn-primary btn-block" href="" onClick={this.handleCategorySelected} style={style.title}>maison</a></p>
                                     <ul style={style.categoryUl}>
-                                        { this.renderListItems(maison) }
+                                        {this.renderListItems(maison)}
                                     </ul>
                                     <p><a type="button" className="btn btn-primary btn-block" href="" onClick={this.handleCategorySelected} style={style.title}>autres</a></p>
                                     <ul style={style.categoryUl}>
@@ -129,4 +143,16 @@ class SearchByCategory extends Component {
     }
 }
 
-export default SearchByCategory;
+const mapStateToProps = (state) => {
+    return {
+        categorySelected: state.categorySelected,
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ categorySelected }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchByCategory);
+

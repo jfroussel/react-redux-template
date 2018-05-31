@@ -18,15 +18,15 @@ class Product extends Component {
     }
 
     componentWillMount() {
-       
         const id = this.props.match.params.id
         this.props.readProduct(id)
         this.props.phoneNumber(id)
+       
     }
 
     render() {
-        const {product} = this.props
-        console.log(product)
+        const {product, phoneNumber} = this.props
+       
         return (
             <div className="grid">
             <Navbar />
@@ -34,11 +34,11 @@ class Product extends Component {
                     <div className="row pt-3">
                         <div className="col-8">
                             <ProductSlide product={product} />
-                            <ProductDescription product={this.props.product} />
+                            <ProductDescription product={product} />
                             <ProductLocation />
                         </div>
                         <div className="col-4">
-                            <ProductActions product={this.props.product} phoneNumber={this.props.phoneNumber} />
+                            <ProductActions product={product} phoneNumber={phoneNumber} />
                         </div>
                     </div>
                 </div>

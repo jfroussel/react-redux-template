@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatBox from './ProductChatBox'
 
 const style = {
     container: {
@@ -27,8 +28,9 @@ const style = {
 }
 
 
-const ProductActions = ({ product }) => {
 
+const ProductActions = ({ product, phoneNumber }) => {
+    console.log(phoneNumber)
     if (!product) {
         return 'no actions'
     }
@@ -45,10 +47,10 @@ const ProductActions = ({ product }) => {
             >
                 <i className="fas fa-phone fa-2x mr-2" style={style.icon}></i>Voir le numero</button>
             <br />
-            <button className="btn btn-primary btn-block" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button className="btn btn-primary btn-block" data-toggle="collapse" href="#messageBox" aria-expanded="false" aria-controls="messageBox">
                 <i className="far fa-comment-alt fa-2x mr-2" style={style.icon}></i>  Envoyer un message
                 </button>
-            <div className="collapse" id="collapseExample">
+            <div className="collapse" id="messageBox">
                 <div className="card card-body">
                     <form>
                         <div className="form-group">
@@ -62,7 +64,14 @@ const ProductActions = ({ product }) => {
                     </form>
                 </div>
             </div><br />
-            <button className="btn btn-info btn-block"><i className="far fa-comments fa-2x mr-2" style={style.icon}></i>  Dialoguer en direct</button>
+            <button className="btn btn-info btn-block" data-toggle="collapse" href="#chatBox" aria-expanded="false" aria-controls="chatBox">
+                <i className="far fa-comments fa-2x mr-2" style={style.icon}></i>  Dialoguer en direct
+                </button>
+            <div className="collapse" id="chatBox">
+                <div className="card card-body">
+                    <ChatBox />
+                </div>
+            </div><br />
         </div>
 
     )

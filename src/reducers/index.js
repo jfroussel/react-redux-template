@@ -6,6 +6,8 @@ import { combineReducers } from 'redux'
 import LbcReducer from './reducer-lbc'
 import ProductReducer from './reducer-product'
 import PhoneNumberReducer from './reducer-phone-number'
+import CategorySelected from './reducer-category-selected'
+
 
 /** 
  * export your reducers here 
@@ -14,5 +16,6 @@ import PhoneNumberReducer from './reducer-phone-number'
 export default combineReducers({
   products: LbcReducer,
   activeProduct: ProductReducer,
-  phoneNumber: PhoneNumberReducer
+  phoneNumber: PhoneNumberReducer,
+  categorySelected : CategorySelected
 })

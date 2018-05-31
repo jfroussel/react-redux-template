@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
-import Leboncoin from '../../containers/Leboncoin.js'
+import React  from 'react'
+import ProductPage from '../ProductPage'
 
-class Home extends Component {
-    render() {
-        return (
-            <div>
-               <Leboncoin />
-           </div>
-        );
-    }
+const Home = () => {
+    return (
+        <div>
+           <ProductPage />
+       </div>
+    )
 }
 
 export default Home

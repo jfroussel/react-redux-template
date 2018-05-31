@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import SearchByCategory from './SearchByCategory'
-import {departements} from '../../Constants'
+import SearchByCategory from '../components/SearchByCategory'
+import {departements} from '../Constants'
 
 const style = {
     container: {
