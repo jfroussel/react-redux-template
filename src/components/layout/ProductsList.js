@@ -55,6 +55,15 @@ const style = {
     link: {
         textDecoration: 'none',
         color: '#6c757d'
+    },
+    counter: {
+        background: 'Tomato',
+        fontWeight: 'bold',
+        marginTop: '7.5rem'
+    },
+    camera: {
+        color: '#FFF',
+        marginTop: '7.5rem'
     }
 
 }
@@ -62,20 +71,21 @@ class ProductsList extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {}
-
+        this.state = {
+            productID: {}
+        }
         this.renderProducts = this.renderProducts.bind(this)
     }
 
 
     componentWillMount() {
+        const id = this.state.productID
         this.props.readAllProducts()
-       
     }
 
     renderProducts() {
         const { products } = this.props
-        
+
         const renderDate = (date) => {
             return (
                 date.toLocaleDateString('fr-FR', options)
@@ -84,14 +94,21 @@ class ProductsList extends Component {
         let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "numeric", minute: "numeric" }
 
 
+
         if (products) {
+
             return (
                 products.map((product, index) => {
+
                     return (
                         <Link to={`product/${index}`} key={product.id} style={style.link} id={index}>
                             <div className="row" style={style.row} key={product.id}>
-                                <div className="col-3" style={style.imgContainer}>
+                                <div className="col-3 text-left" style={style.imgContainer}>
                                     <img src={product.images[0]} alt='' style={style.img} />
+                                    <span className="fa-layers fa-fw fa-1x" >
+                                        <i className="fas fa-camera fa-1x" style={style.camera}></i>
+                                        <span className="fa-layers-counter fa-2x" style={style.counter}>3</span>
+                                    </span>
                                 </div>
                                 <div className="col-5" style={style.content}>
                                     <p style={style.title}>{product.title}</p>
@@ -124,6 +141,7 @@ class ProductsList extends Component {
 const mapStateToProps = (state) => {
     return {
         products: state.products,
+
     }
 }
 

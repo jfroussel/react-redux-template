@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { categorySelected } from '../actions'
 import SearchByCategory from '../components/SearchByCategory'
-import {departements} from '../Constants'
+import { departements } from '../Constants'
 
 const style = {
     container: {
@@ -18,7 +21,7 @@ const style = {
         marginRight: '10.5rem'
     },
     departements: {
-        backgroundColor:'#dcdcc3',
+        backgroundColor: '#dcdcc3',
     },
 }
 
@@ -27,30 +30,56 @@ class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentDepartment:'Ile-de-France'
+            currentDepartment: 'Ile-de-France',
+            query: '',
         }
         this.handleChangeDepartement = this.handleChangeDepartement.bind(this)
     }
 
+
+    componentWillMount() {
+        this.props.categorySelected()
+    }
+
     handleChangeDepartement(e) {
-        this.setState({currentDepartment: e.target.selectedOptions[0].text})
+        this.setState({ currentDepartment: e.target.selectedOptions[0].text })
+    }
+
+    handleChangeQuery(e) {
+        console.log('RENDER QUERY : ', e.target.value)
+        return this.setState({ query: e.target.value })
+    }
+
+    handleClick(state) {
+        return console.log(('HANDLE CLICK',this.state))
     }
 
     render() {
+
         return (
             <div className="container-fluid pt-3 pb-3" style={style.container}>
                 <div className="container">
                     <div className="row">
                         <div className="col-6">
                             <div className="form-group">
-                                <input type="text" className="form-control" id="search" aria-describedby="search" placeholder="Que recherchez vous ?" />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="search"
+                                    aria-describedby="search"
+                                    placeholder="Que recherchez vous ?"
+                                    onChange={(e) => this.handleChangeQuery(e)}
+                                />
                             </div>
                         </div>
                         <div className="col-3">
                             <SearchByCategory />
                         </div>
                         <div className="col-3">
-                            <button className="btn btn-primary btn-block">Rechercher</button>
+                            <button
+                                className="btn btn-primary btn-block"
+                                onClick={() => this.handleClick()}
+                                >Rechercher</button>
                         </div>
                     </div>
                     <div className="row">
@@ -70,14 +99,14 @@ class Search extends Component {
                         </div>
                         <div className="col-3 ">
                             <div className="form-group mr-1">
-                                <select className="form-control" id="exampleFormControlSelect1" onChange={this.handleChangeDepartement}>                                  
+                                <select className="form-control" id="exampleFormControlSelect1" onChange={this.handleChangeDepartement}>
                                     {
                                         departements.map((item) => {
                                             return (
                                                 <option key={item.value} value={item.value}>{item.label}</option>
                                             )
                                         })
-                                    }                                                                                                             
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -86,12 +115,24 @@ class Search extends Component {
                                 <input type="text" className="form-control" id="postalCode" aria-describedby="postalCode" placeholder="Ville ou Code postal" />
                             </div>
                         </div>
-                        
+
+                    </div>
                 </div>
-            </div>
             </div >
         );
     }
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+    return {
+        categorySelected: state.categorySelected,
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ categorySelected }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
+

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { categorySelected } from '../actions'
+
 import { maison, services, materiels, loisirs, multimedia, vacances, immobilier, vehicules } from '../Constants'
 
 const style = {
@@ -38,28 +36,23 @@ class SearchByCategory extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            //categorySelected: 'all categories'
         }
         this.handleCategorySelected = this.handleCategorySelected.bind(this)
         this.renderListItems = this.renderListItems.bind(this)
     }
 
+    
     componentWillMount() {
-        const category = 'all'
-        this.props.categorySelected(category)
+        console.log('CWM : ',this.props)
     }
 
+
     handleCategorySelected(e) {
-        console.log(this.props)
-        console.log('current target : ', e.currentTarget.text)
+       
         this.setState({ categorySelected: e.currentTarget.text })
         e.preventDefault()
     }
-
-    componentWillReceiveProps(nextProps) {
-        console.log(this.props)
-    }
-    
 
     renderListItems(items) {
         return (
@@ -74,7 +67,7 @@ class SearchByCategory extends Component {
     }
 
     render() {
-
+       
         return (
             <div>
                 <div className="dropdown">
@@ -143,16 +136,7 @@ class SearchByCategory extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        categorySelected: state.categorySelected,
 
-    }
-}
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ categorySelected }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchByCategory);
+export default SearchByCategory;
 

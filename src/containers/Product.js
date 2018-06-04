@@ -28,6 +28,7 @@ class Product extends Component {
         const {product, phoneNumber} = this.props
        
         return (
+            
             <div className="grid">
             <Navbar />
                 <div className="container">

@@ -54,7 +54,7 @@ export const phoneNumber = (id) => {
 
 export const CATEGORY_SELECTED = 'CATEGORY_SELECTED'
 
-export const categorySelected = (category) => {
+export const categorySelected = (category = null) => {
     return (dispatch) => {
         dispatch({ type: CATEGORY_SELECTED, payload: category })
     }

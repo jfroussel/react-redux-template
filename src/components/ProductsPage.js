@@ -3,7 +3,7 @@ import Navbar from '../components/layout/Navbar'
 import Search from '../containers/Search'
 import Content from '../components/layout/Content'
 
-const ProductPage = () => {
+const ProductsPage = () => {
     return (
         <div className="grid"> 
             <Navbar />
@@ -13,4 +13,4 @@ const ProductPage = () => {
     )
 }
         
-export default ProductPage;
+export default ProductsPage;
