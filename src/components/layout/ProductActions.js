@@ -28,12 +28,19 @@ const style = {
 }
 
 
-
 const ProductActions = ({ product, phoneNumber }) => {
-    console.log(phoneNumber)
+    let phone = 'voir le numero'
+    const displayPhone = () => {
+        if(!phoneNumber) {
+            phone = 'titi'
+        } else {
+            phone = phoneNumber
+        }
+    }
     if (!product) {
         return 'no actions'
     }
+   
     return (
 
         <div className="container text-center" style={style.container}>
@@ -43,9 +50,9 @@ const ProductActions = ({ product, phoneNumber }) => {
             <button
                 className="btn btn-block pb"
                 style={style.number}
-
+                onClick={() => displayPhone()}
             >
-                <i className="fas fa-phone fa-2x mr-2" style={style.icon}></i>Voir le numero</button>
+                <i className="fas fa-phone fa-2x mr-2" style={style.icon}></i>{phone}</button>
             <br />
             <button className="btn btn-primary btn-block" data-toggle="collapse" href="#messageBox" aria-expanded="false" aria-controls="messageBox">
                 <i className="far fa-comment-alt fa-2x mr-2" style={style.icon}></i>  Envoyer un message

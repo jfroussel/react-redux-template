@@ -39,7 +39,7 @@ export const readProduct = (id) => {
 export const READ_PHONE_NUMBER = 'READ_PHONE_NUMBER'
 export const ERROR_READ_PHONE_NUMBER = 'ERROR_READ_PHONE_NUMBER'
 
-export const phoneNumber = (id) => {
+export const readPhoneNumber = (id) => {
     return (dispatch) => {
         search.run().then((data) => {
             data.results[id].getPhoneNumber().then((detail) => {

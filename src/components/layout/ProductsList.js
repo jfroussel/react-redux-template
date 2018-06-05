@@ -72,16 +72,17 @@ class ProductsList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            productID: {}
+           
         }
         this.renderProducts = this.renderProducts.bind(this)
     }
 
 
     componentWillMount() {
-        const id = this.state.productID
         this.props.readAllProducts()
     }
+
+    
 
     renderProducts() {
         const { products } = this.props
@@ -92,9 +93,7 @@ class ProductsList extends Component {
             )
         }
         let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "numeric", minute: "numeric" }
-
-
-
+        
         if (products) {
 
             return (
@@ -141,7 +140,6 @@ class ProductsList extends Component {
 const mapStateToProps = (state) => {
     return {
         products: state.products,
-
     }
 }
 

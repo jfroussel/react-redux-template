@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { readProduct, phoneNumber } from '../actions'
+import { readProduct, readPhoneNumber } from '../actions'
 import ProductDescription from '../components/layout/ProductDescription'
 import ProductLocation from '../components/layout/ProductLocation'
 import ProductActions from '../components/layout/ProductActions'
@@ -14,23 +14,24 @@ class Product extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+            countImages: ''
+        }
     }
 
     componentWillMount() {
         const id = this.props.match.params.id
         this.props.readProduct(id)
-        this.props.phoneNumber(id)
-       
+        this.props.readPhoneNumber(id)
     }
 
     render() {
-        const {product, phoneNumber} = this.props
-       
+        const { product, phoneNumber } = this.props
+        console.log(phoneNumber)
         return (
-            
+
             <div className="grid">
-            <Navbar />
+                <Navbar />
                 <div className="container">
                     <div className="row pt-3">
                         <div className="col-8">
@@ -40,6 +41,7 @@ class Product extends Component {
                         </div>
                         <div className="col-4">
                             <ProductActions product={product} phoneNumber={phoneNumber} />
+                            {phoneNumber ? phoneNumber : 'no phone'}
                         </div>
                     </div>
                 </div>
@@ -56,7 +58,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ readProduct, phoneNumber }, dispatch)
+    return bindActionCreators({ readProduct, readPhoneNumber }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
