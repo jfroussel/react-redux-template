@@ -32,6 +32,7 @@ const renderDate = (date) => {
 let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "numeric", minute: "numeric" }
 
 const renderImages = (images) => {
+    //console.log('images list',images.length)
     let img = []
     images.map((image) => {
         return (

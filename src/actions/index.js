@@ -14,6 +14,7 @@ let search = new leboncoin.Search()
 export const readAllProducts = () => {
     return (dispatch) => {
         search.run().then((data) => {
+            console.log('read all : ', data)
             dispatch({ type: READ_ALL_PRODUCTS, payload: data.results })
         }).catch((error) => {
             dispatch({ type: ERROR_READ_ALL_PRODUCTS, errors:'error' })
@@ -47,7 +48,7 @@ export const readPhoneNumber = (id) => {
                 dispatch({ type: READ_PHONE_NUMBER, payload: detail })
             })
         }).catch((error) => {
-            dispatch({ type: ERROR_READ_PHONE_NUMBER, errors:'error' })
+            dispatch({ type: ERROR_READ_PHONE_NUMBER, errors:console.log('phone number is undefined') })
         })
     }
 }

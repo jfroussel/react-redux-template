@@ -35,7 +35,7 @@ class Product extends Component {
                 <div className="container">
                     <div className="row pt-3">
                         <div className="col-8">
-                            <ProductSlide product={product} />
+                            <ProductSlide product={product}/>
                             <ProductDescription product={product} />
                             <ProductLocation />
                         </div>
