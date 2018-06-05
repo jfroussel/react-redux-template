@@ -30,7 +30,7 @@ class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentDepartment: 'Ile-de-France',
+            currentDepartment: 12,
             query: '',
         }
         this.handleChangeDepartement = this.handleChangeDepartement.bind(this)

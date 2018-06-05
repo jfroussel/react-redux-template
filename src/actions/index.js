@@ -1,7 +1,5 @@
 import leboncoin from 'leboncoin-api'
 
-
-
 export const READ_ALL_PRODUCTS = 'READ_ALL_PRODUCTS'
 export const ERROR_READ_ALL_PRODUCTS = 'ERROR_READ_ALL_PRODUCTS'
 let search = new leboncoin.Search()
@@ -44,7 +42,6 @@ export const readPhoneNumber = (id) => {
     return (dispatch) => {
         search.run().then((data) => {
             data.results[id].getPhoneNumber().then((detail) => {
-                console.log('detail : ',detail)
                 dispatch({ type: READ_PHONE_NUMBER, payload: detail })
             })
         }).catch((error) => {

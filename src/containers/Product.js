@@ -27,9 +27,7 @@ class Product extends Component {
 
     render() {
         const { product, phoneNumber } = this.props
-        console.log(phoneNumber)
         return (
-
             <div className="grid">
                 <Navbar />
                 <div className="container">
@@ -41,7 +39,6 @@ class Product extends Component {
                         </div>
                         <div className="col-4">
                             <ProductActions product={product} phoneNumber={phoneNumber} />
-                            {phoneNumber ? phoneNumber : 'no phone'}
                         </div>
                     </div>
                 </div>

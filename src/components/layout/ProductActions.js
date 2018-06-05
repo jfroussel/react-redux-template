@@ -35,15 +35,10 @@ class ProductActions extends Component {
         }
     }
 
-    componentWillMount() {
-        console.log('mes props : ', this.props)
-    }
-
     render() {
         const { product, phoneNumber } = this.props
 
         const displayPhone = () => {
-            console.log('my phone : ', phoneNumber)
             if (!phoneNumber) {
                 return this.setState({ phone: 'Pas de numero' })
             } else {

@@ -62,7 +62,7 @@ const style = {
         marginTop: '7.5rem'
     },
     camera: {
-        color: '#FFF',
+        color: '#c7c7c7',
         marginTop: '7.5rem'
     }
 
@@ -71,18 +71,13 @@ class ProductsList extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-           
-        }
+        this.state = {}
         this.renderProducts = this.renderProducts.bind(this)
     }
-
 
     componentWillMount() {
         this.props.readAllProducts()
     }
-
-    
 
     renderProducts() {
         const { products } = this.props
@@ -95,10 +90,8 @@ class ProductsList extends Component {
         let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "numeric", minute: "numeric" }
         
         if (products) {
-
             return (
                 products.map((product, index) => {
-
                     return (
                         <Link to={`product/${index}`} key={product.id} style={style.link} id={index}>
                             <div className="row" style={style.row} key={product.id}>
@@ -128,11 +121,9 @@ class ProductsList extends Component {
 
     render() {
         return (
-
             <div className="container">
                 {this.renderProducts()}
             </div>
-
         );
     }
 }
