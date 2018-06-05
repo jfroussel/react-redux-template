@@ -83,7 +83,7 @@ class ProductActions extends Component {
                 </button>
                 <div className="collapse" id="chatBox">
                     <div className="card card-body">
-                        <ChatBox />
+                        <ChatBox product={product} />
                     </div>
                 </div><br />
             </div>

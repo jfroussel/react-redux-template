@@ -10,7 +10,6 @@ const style = {
 }
 
 const carriage2br = (description) => {
-    console.log('description : ',description)
     return (
         description.split('\n').map((item, key) => {
             return <span key={key}>{item}<br/></span>
